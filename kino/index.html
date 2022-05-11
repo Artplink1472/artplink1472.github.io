@@ -148,7 +148,6 @@ if ('serviceWorker' in navigator) {
 	<script>
 	var searchString = new URLSearchParams(window.location.search);
 	const id = searchString.get('id');
-	const TLT = encodeURI(searchString.get('title'));
 	
 	$.ajax({
 			 		async: true,
@@ -194,10 +193,6 @@ if ('serviceWorker' in navigator) {
 							$(".copyrightYear").html(response.year);
 							$("#title").html(response.nameOriginal);
 							
-							if( TLT == 'null' ) {
-								new_url = window.location.search + "&title=" + response.nameRu + ' (' + response.year + ')';
-								window.location.href = new_url;
-							};
 							$(".entity-desc-description").html(response.description);
 							$(".entity-desc-poster").html('<div class="entity-desc-poster-img fadeIn animated" style="background: url('+response.posterUrl+'), url("/img/nocover.png")"></div>');
 							var a = response.genres;
